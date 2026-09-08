@@ -1,18 +1,11 @@
 import { useState } from 'react'
 import { useForm } from "react-hook-form";
+import { zodProductSchema } from './schemas/productSchema';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useProducts } from './hooks/useProducts';
 import { useCreateProduct } from './hooks/useCreateProduct';
 import { useLogin } from './hooks/useLogin';
 import './App.css'
-
-const zodProductSchema = z.object({
-  name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
-  price: z.coerce.number().positive("El precio debe ser un número positivo"),
-  stock: z.coerce.number().min(0, "El stock debe ser un número no positivo")
-});
-
 
 function ProductList() {
   const { data, isLoading, isError, error } = useProducts();
@@ -125,7 +118,7 @@ function App() {
 
   return (
     <div className="page">
-      <header className="page__header"> 
+      <header className="page__header">
         <h1 className="page__tagline">Registro de Inventario</h1>
       </header>
 
