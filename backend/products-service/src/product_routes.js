@@ -1,7 +1,7 @@
 import express from "express";
 import { getProductsRepo, getProductByIdRepo, createProductRepo, updatedProductRepo, deleteProductRepo } from './product_repository.js';
 import { getProducts, getProductById, createProduct, updateProduct, deleteProduct } from './product_service.js';
-import { requireAuth } from "../auth/auth_middleware.js";
+import {requireAuth} from "./remote_auth.js";
 
 const router = express.Router();
 
